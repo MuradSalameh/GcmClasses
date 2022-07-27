@@ -2,6 +2,9 @@ package gcmClasses;
 
 import java.time.LocalDate;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement()
 public class Expense {
 	private int id;
 	private String expenseTitle;
