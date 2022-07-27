@@ -1,28 +1,13 @@
 package gcmClasses;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.xml.bind.annotation.XmlRootElement;
 
-@Entity
-@Table(name = "role")
-public class Role {
+@XmlRootElement()
+public class Role {	
 	
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "ID")
 	private int id;	
-	
-	@Column(name = "role_name")
 	private String roleName;	
-	
-	@Column(name = "role_description")
-	private String roleDescription;
-	
-	
+	private String roleDescription;	
     
 	public Role() {
 		super();
@@ -53,6 +38,10 @@ public class Role {
 
 	public void setRoleDescription(String roleDescription) {
 		this.roleDescription = roleDescription;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 	
 	

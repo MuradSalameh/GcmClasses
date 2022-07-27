@@ -4,14 +4,11 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 @XmlRootElement()
-public class Member {
-	
-	
+public class Member {	
 	private int id;		
 	private String firstName;	
 	private String lastName;	
@@ -25,10 +22,7 @@ public class Member {
 	List<Role> roles = new ArrayList<>();	
 	List<Social> socials = new ArrayList<>();	
 	List<Game> games = new ArrayList<>();	
-	private LocalDate birthday;
-
-	
-	
+	private LocalDate birthday;	
 	List<Team> teams = new ArrayList<>();
 
 

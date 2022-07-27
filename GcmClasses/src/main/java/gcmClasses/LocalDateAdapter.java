@@ -22,4 +22,3 @@ public class LocalDateAdapter extends XmlAdapter<String, LocalDate> {
 	}
 }
 
-

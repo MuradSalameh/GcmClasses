@@ -1,37 +1,36 @@
 package gcmClasses;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 @XmlRootElement()
 public class Expense {
-	private int id;
-	private String expenseTitle;
-	private String expenseDescription;
-	private double amount;
-	private LocalDate date;
-	private String recipientName;
-	private ExpenseType expenseType;
 	
-	public Expense(int id, String expenseTitle, String expenseDescription, double amount, LocalDate date,
-			String recipientName, ExpenseType expenseType) {
+	private int id;
+	private String expenseTitle;	
+	private String expenseDescription;	
+	private double amount;	
+	private LocalDate date;	
+	private String recipientName;	
+	List<ExpenseType> expenseTypes = new ArrayList<>();
+
+	public Expense() {
 		super();
-		this.id = id;
+	}
+
+	public Expense(String expenseTitle, String expenseDescription, double amount, LocalDate date, String recipientName,
+			List<ExpenseType> expenseTypes) {
+		super();
 		this.expenseTitle = expenseTitle;
 		this.expenseDescription = expenseDescription;
 		this.amount = amount;
 		this.date = date;
 		this.recipientName = recipientName;
-		this.expenseType = expenseType;
-	}
-
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
+		this.expenseTypes = expenseTypes;
 	}
 
 	public String getExpenseTitle() {
@@ -58,6 +57,7 @@ public class Expense {
 		this.amount = amount;
 	}
 
+	@XmlJavaTypeAdapter(value= LocalDateAdapter.class) //Annotierungen immer beim Getter
 	public LocalDate getDate() {
 		return date;
 	}
@@ -74,15 +74,24 @@ public class Expense {
 		this.recipientName = recipientName;
 	}
 
-	public ExpenseType getExpenseType() {
-		return expenseType;
+	public List<ExpenseType> getExpenseTypes() {
+		return expenseTypes;
 	}
 
-	public void setExpenseType(ExpenseType expenseType) {
-		this.expenseType = expenseType;
+	public void setExpenseTypes(List<ExpenseType> expenseTypes) {
+		this.expenseTypes = expenseTypes;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 	
 	
 	
-
+	
+	
 }

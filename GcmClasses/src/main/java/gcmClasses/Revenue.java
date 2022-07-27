@@ -1,50 +1,52 @@
 package gcmClasses;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
+@XmlRootElement()
 public class Revenue {
+	
 	private int id;
-	private String title;
-	private String description;
+	private String revenueTitle;
+	private String revenueDescription;
 	private double amount;
 	private LocalDate date;
 	private Partner partner;
-	private RevenueType reventueType;
-	
-	public Revenue(int id, String title, String description, double amount, LocalDate date, Partner partner,
-			RevenueType reventueType) {
+	List<RevenueType> revenueTypes = new ArrayList<>();
+
+	public Revenue() {
 		super();
-		this.id = id;
-		this.title = title;
-		this.description = description;
+	}
+
+	public Revenue(String revenueTitle, String revenueDescription, double amount, LocalDate date, Partner partner,
+			List<RevenueType> revenueTypes) {
+		super();
+		this.revenueTitle = revenueTitle;
+		this.revenueDescription = revenueDescription;
 		this.amount = amount;
 		this.date = date;
 		this.partner = partner;
-		this.reventueType = reventueType;
+		this.revenueTypes = revenueTypes;
 	}
 
-	public int getId() {
-		return id;
+	public String getRevenueTitle() {
+		return revenueTitle;
 	}
 
-	public void setId(int id) {
-		this.id = id;
+	public void setRevenueTitle(String revenueTitle) {
+		this.revenueTitle = revenueTitle;
 	}
 
-	public String getTitle() {
-		return title;
+	public String getRevenueDescription() {
+		return revenueDescription;
 	}
 
-	public void setTitle(String title) {
-		this.title = title;
-	}
-
-	public String getDescription() {
-		return description;
-	}
-
-	public void setDescription(String description) {
-		this.description = description;
+	public void setRevenueDescription(String revenueDescription) {
+		this.revenueDescription = revenueDescription;
 	}
 
 	public double getAmount() {
@@ -55,6 +57,7 @@ public class Revenue {
 		this.amount = amount;
 	}
 
+	@XmlJavaTypeAdapter(value= LocalDateAdapter.class) //Annotierungen immer beim Getter
 	public LocalDate getDate() {
 		return date;
 	}
@@ -71,15 +74,21 @@ public class Revenue {
 		this.partner = partner;
 	}
 
-	public RevenueType getReventueType() {
-		return reventueType;
+	public List<RevenueType> getRevenueTypes() {
+		return revenueTypes;
 	}
 
-	public void setReventueType(RevenueType reventueType) {
-		this.reventueType = reventueType;
+	public void setRevenueTypes(List<RevenueType> revenueTypes) {
+		this.revenueTypes = revenueTypes;
 	}
-	
-	
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
 	
 	
 

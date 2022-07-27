@@ -4,64 +4,25 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.JoinColumn;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 
-@Entity
-@Table(name = "game")
+@XmlRootElement()
 public class Game {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "ID")
+	
 	private int id;
-
-	@Column(name = "game_title")
 	private String gameTitle;
-
-
-	@Column(name = "release_date")
 	private LocalDate releaseDate;
-
-	// join table genre games
-	@ManyToMany(cascade = { CascadeType.ALL })
-	@JoinTable(
-			name="game_genre",
-			joinColumns = @JoinColumn( name="game_id"),
-			inverseJoinColumns = @JoinColumn( name="genre_id")
-			)
 	List<Genre> genres = new ArrayList<Genre>();
-
-	//join table members games
-	@ManyToMany(mappedBy = "games")
 	List<Member> members = new ArrayList<Member>();
-	
-	// join column tournament game
-	@OneToMany(mappedBy="game")
     List<Tournament> tournaments = new ArrayList<Tournament>();
-	
-
-
-	@Column(name = "game_additional_notes")
 	private String gameAddidionalNotes;
-
-
 
 	public Game() {
 		super();
 	}
-
-
 
 	public Game(String gameTitle, LocalDate releaseDate, List<Genre> genres, List<Member> members,
 			List<Tournament> tournaments, String gameAddidionalNotes) {
@@ -74,8 +35,6 @@ public class Game {
 		this.gameAddidionalNotes = gameAddidionalNotes;
 	}
 
-
-
 	public String getGameTitle() {
 		return gameTitle;
 	}
@@ -87,7 +46,7 @@ public class Game {
 	}
 
 
-
+	@XmlJavaTypeAdapter(value= LocalDateAdapter.class) //Annotierungen immer beim Getter
 	public LocalDate getReleaseDate() {
 		return releaseDate;
 	}
@@ -150,6 +109,10 @@ public class Game {
 
 	public int getId() {
 		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 
 

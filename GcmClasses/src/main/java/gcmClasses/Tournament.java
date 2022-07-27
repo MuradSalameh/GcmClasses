@@ -4,68 +4,26 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.JoinColumn;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
-@Entity
-@Table(name = "tounament")
+@XmlRootElement()
 public class Tournament {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "ID")
+	
 	private int id;
-
-	@Column(name = "tournament_title")
 	private String touramentTitle;
-
-	@Column(name = "tournament_description")
 	private String tournamentDescription;
-
-	@Column(name = "tournament_date")
 	private LocalDate tournamentDate;
-
-	@Column(name = "tournament_time_beginn")
 	private LocalTime tournamentTimeBeginn;
-
-	@Column(name = "tournament_time_end")
 	private LocalTime tournamentTimeEnd;
-
-	// join table for tournament teams
-	@OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
-	@JoinTable(
-			name = "tournament_teams", 
-			joinColumns = { @JoinColumn(name = "tournament_id") }, 
-			inverseJoinColumns = { @JoinColumn(name = "team_id") }
-			)	
 	List<Team> teams = new ArrayList<>();
-
-
-	// join column for game tournaments
-	@ManyToOne
-    @JoinColumn(name="game_id")
     private Game game;
-
-	@Column(name = "tournament_result")
 	private String tournamentResult;
-
-
 
 	public Tournament() {
 		super();
 	}
-
-
 
 	public Tournament(String touramentTitle, String tournamentDescription, LocalDate tournamentDate,
 			LocalTime tournamentTimeBeginn, LocalTime tournamentTimeEnd, List<Team> teams, Game game,
@@ -106,7 +64,7 @@ public class Tournament {
 	}
 
 
-
+	@XmlJavaTypeAdapter(value= LocalDateAdapter.class) //Annotierungen immer beim Getter
 	public LocalDate getTournamentDate() {
 		return tournamentDate;
 	}
@@ -118,7 +76,7 @@ public class Tournament {
 	}
 
 
-
+	@XmlJavaTypeAdapter(value= LocalTimeAdapter.class) //Annotierungen immer beim Getter
 	public LocalTime getTournamentTimeBeginn() {
 		return tournamentTimeBeginn;
 	}
@@ -130,7 +88,7 @@ public class Tournament {
 	}
 
 
-
+	@XmlJavaTypeAdapter(value= LocalTimeAdapter.class) //Annotierungen immer beim Getter
 	public LocalTime getTournamentTimeEnd() {
 		return tournamentTimeEnd;
 	}
@@ -181,6 +139,10 @@ public class Tournament {
 
 	public int getId() {
 		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 
 

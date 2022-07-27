@@ -3,72 +3,25 @@ package gcmClasses;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.JoinColumn;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinTable;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import javax.xml.bind.annotation.XmlRootElement;
 
-@Entity
-@Table(name = "partner")
-public class Partner{
+@XmlRootElement()
+public class Partner{	
 	
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "ID")
 	private int id;		
-
-	@Column(name = "company_name")
 	private String companyName;
-	
-	@Column(name = "contact_person_name")
 	private String contactPersonName;
-	
-	@Column(name = "contact_person_phone")
 	private String contactPersonPhone;
-	
-	@Column(name = "contact_person_mail")
 	private String contactPersonMail;
-
-	@Column(name = "first_name")
 	private String firstName;
-
-	@Column(name = "last_name")
-	private String lastName;	
-
-	@Column(name = "address_street")
+	private String lastName;
 	private String adressStreet;
-
-	@Column(name = "address_number")
 	private String adressNumber;
-
-	@Column(name = "address_postcode")
 	private String adressPostCode;
-
-	@Column(name = "address_city")
-	private String adressCity;	
-
-	@Column(name = "country")
+	private String adressCity;
 	private String country;	
-
-	@Column(name = "email")
 	private String email;	
-
-	@Column(name = "phone_number")
 	private String phoneNumber;	
-
-	//join table for partner socials
-	@OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
-	@JoinTable(
-            name="partner_socials",
-            joinColumns = @JoinColumn( name="partner_id"),
-            inverseJoinColumns = @JoinColumn( name="social_id")
-    )
 	List<Social> socials = new ArrayList<>();
 
 	
@@ -240,6 +193,11 @@ public class Partner{
 
 	public int getId() {
 		return id;
+	}
+
+
+	public void setId(int id) {
+		this.id = id;
 	}
 	
 	

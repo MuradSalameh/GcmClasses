@@ -1,31 +1,14 @@
 package gcmClasses;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.xml.bind.annotation.XmlRootElement;
 
-@Entity
-@Table(name = "social")
-public class Social {
+@XmlRootElement()
+public class Social {	
 	
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "ID")
 	private int id;
-	
-	@Column(name = "social_platform")
-	private String socialPlatform;	
-	
-	@Column(name = "social_username")
+	private String socialPlatform;
 	private String socialUsername;	
-	
-	@Column(name = "social_link")
 	private String socialLink;	
-	
-	@Column(name = "social_notes")
 	private String socialNotes;
 	
 	public Social() {
@@ -74,6 +57,10 @@ public class Social {
 
 	public int getId() {
 		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 	
 	
