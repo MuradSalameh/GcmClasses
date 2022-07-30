@@ -24,9 +24,10 @@ public class Game {
 		super();
 	}
 
-	public Game(String gameTitle, LocalDate releaseDate, List<Genre> genres, List<Member> members,
+	public Game(int id, String gameTitle, LocalDate releaseDate, List<Genre> genres, List<Member> members,
 			List<Tournament> tournaments, String gameAddidionalNotes) {
 		super();
+		this.id = id;
 		this.gameTitle = gameTitle;
 		this.releaseDate = releaseDate;
 		this.genres = genres;

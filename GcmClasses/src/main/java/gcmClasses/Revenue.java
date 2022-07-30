@@ -22,9 +22,10 @@ public class Revenue {
 		super();
 	}
 
-	public Revenue(String revenueTitle, String revenueDescription, double amount, LocalDate date, Partner partner,
+	public Revenue(int id, String revenueTitle, String revenueDescription, double amount, LocalDate date, Partner partner,
 			List<RevenueType> revenueTypes) {
 		super();
+		this.id = id;
 		this.revenueTitle = revenueTitle;
 		this.revenueDescription = revenueDescription;
 		this.amount = amount;

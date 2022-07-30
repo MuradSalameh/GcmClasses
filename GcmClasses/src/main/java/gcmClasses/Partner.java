@@ -23,17 +23,16 @@ public class Partner{
 	private String email;	
 	private String phoneNumber;	
 	List<Social> socials = new ArrayList<>();
-
 	
 	public Partner() {
 		super();
 	}
 
-
-	public Partner(String companyName, String contactPersonName, String contactPersonPhone, String contactPersonMail,
+	public Partner(int id, String companyName, String contactPersonName, String contactPersonPhone, String contactPersonMail,
 			String firstName, String lastName, String adressStreet, String adressNumber, String adressPostCode,
 			String adressCity, String country, String email, String phoneNumber, List<Social> socials) {
 		super();
+		this.id = id;
 		this.companyName = companyName;
 		this.contactPersonName = contactPersonName;
 		this.contactPersonPhone = contactPersonPhone;
@@ -198,10 +197,6 @@ public class Partner{
 
 	public void setId(int id) {
 		this.id = id;
-	}
-	
-	
-	
-	
+	}	
 
 }

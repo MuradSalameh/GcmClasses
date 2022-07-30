@@ -19,8 +19,9 @@ public class Team {
 	}
 
 
-	public Team(String teamName, String teamDescription, List<Member> members) {
+	public Team(int id, String teamName, String teamDescription, List<Member> members) {
 		super();
+		this.id = id;
 		this.teamName = teamName;
 		this.teamDescription = teamDescription;
 		this.members = members;

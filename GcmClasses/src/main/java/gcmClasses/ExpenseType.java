@@ -15,8 +15,9 @@ public class ExpenseType {
 	}
 
 
-	public ExpenseType(String expenseTitle, String expenseDescription) {
+	public ExpenseType(int id, String expenseTitle, String expenseDescription) {
 		super();
+		this.id = id;
 		this.expenseTitle = expenseTitle;
 		this.expenseDescription = expenseDescription;
 	}

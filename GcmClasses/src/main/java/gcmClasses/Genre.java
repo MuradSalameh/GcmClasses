@@ -18,8 +18,9 @@ public class Genre {
 		super();
 	}
 
-	public Genre(String genreTitle, List<Game> games) {
+	public Genre(int id, String genreTitle, List<Game> games) {
 		super();
+		this.id = id;
 		this.genreTitle = genreTitle;
 		this.games = games;
 	}

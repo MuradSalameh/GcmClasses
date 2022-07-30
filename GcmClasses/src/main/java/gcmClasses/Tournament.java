@@ -25,10 +25,11 @@ public class Tournament {
 		super();
 	}
 
-	public Tournament(String touramentTitle, String tournamentDescription, LocalDate tournamentDate,
+	public Tournament(int id, String touramentTitle, String tournamentDescription, LocalDate tournamentDate,
 			LocalTime tournamentTimeBeginn, LocalTime tournamentTimeEnd, List<Team> teams, Game game,
 			String tournamentResult) {
 		super();
+		this.id = id;
 		this.touramentTitle = touramentTitle;
 		this.tournamentDescription = tournamentDescription;
 		this.tournamentDate = tournamentDate;
@@ -93,49 +94,33 @@ public class Tournament {
 		return tournamentTimeEnd;
 	}
 
-
-
 	public void setTournamentTimeEnd(LocalTime tournamentTimeEnd) {
 		this.tournamentTimeEnd = tournamentTimeEnd;
 	}
-
-
 
 	public List<Team> getTeams() {
 		return teams;
 	}
 
-
-
 	public void setTeams(List<Team> teams) {
 		this.teams = teams;
 	}
-
-
 
 	public Game getGame() {
 		return game;
 	}
 
-
-
 	public void setGame(Game game) {
 		this.game = game;
 	}
-
-
 
 	public String getTournamentResult() {
 		return tournamentResult;
 	}
 
-
-
 	public void setTournamentResult(String tournamentResult) {
 		this.tournamentResult = tournamentResult;
 	}
-
-
 
 	public int getId() {
 		return id;
@@ -144,7 +129,5 @@ public class Tournament {
 	public void setId(int id) {
 		this.id = id;
 	}
-
-
 
 }

@@ -22,9 +22,10 @@ public class Expense {
 		super();
 	}
 
-	public Expense(String expenseTitle, String expenseDescription, double amount, LocalDate date, String recipientName,
+	public Expense(int id, String expenseTitle, String expenseDescription, double amount, LocalDate date, String recipientName,
 			List<ExpenseType> expenseTypes) {
 		super();
+		this.id = id;
 		this.expenseTitle = expenseTitle;
 		this.expenseDescription = expenseDescription;
 		this.amount = amount;

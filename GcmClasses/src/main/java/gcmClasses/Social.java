@@ -15,8 +15,9 @@ public class Social {
 		super();
 	}
 
-	public Social(String socialPlatform, String socialUsername, String socialLink, String socialNotes) {
+	public Social(int id, String socialPlatform, String socialUsername, String socialLink, String socialNotes) {
 		super();
+		this.id = id;
 		this.socialPlatform = socialPlatform;
 		this.socialUsername = socialUsername;
 		this.socialLink = socialLink;

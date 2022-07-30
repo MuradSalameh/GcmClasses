@@ -13,8 +13,9 @@ public class RevenueType {
 		super();
 	}
 
-	public RevenueType(String revenueTypeTitle, String revenueTypeDescription) {
+	public RevenueType(int id, String revenueTypeTitle, String revenueTypeDescription) {
 		super();
+		this.id = id;
 		this.revenueTypeTitle = revenueTypeTitle;
 		this.revenueTypeDescription = revenueTypeDescription;
 	}

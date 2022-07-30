@@ -3,17 +3,16 @@ package gcmClasses;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
-
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 @XmlRootElement()
 public class Member {	
-	private int id;		
-	private String firstName;	
-	private String lastName;	
-	private String addressStreet;	
-	private String addressNumber;
+	private int id;			
+	private String clanName;	
+	private String clanId;		
+	private String realName;	
+	private String address;
 	private String addressPostCode;
 	private String addressCity;	
 	private String country;	
@@ -25,20 +24,19 @@ public class Member {
 	private LocalDate birthday;	
 	List<Team> teams = new ArrayList<>();
 
-
 	public Member() {
 		super();
 	}
 
-
-	public Member(String firstName, String lastName, String addressStreet, String addressNumber, String addressPostCode,
-			String addressCity, String country, String email, String phoneNumber, List<Role> roles, List<Social> socials,
-			List<Game> games, LocalDate birthday, List<Team> teams) {
+	public Member(int id, String clanName, String clanId, String realName, String address, String addressPostCode,
+			String addressCity, String country, String email, String phoneNumber, List<Role> roles,
+			List<Social> socials, List<Game> games, LocalDate birthday, List<Team> teams) {
 		super();
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.addressStreet = addressStreet;
-		this.addressNumber = addressNumber;
+		this.id = id;
+		this.clanName = clanName;
+		this.clanId = clanId;
+		this.realName = realName;
+		this.address = address;
 		this.addressPostCode = addressPostCode;
 		this.addressCity = addressCity;
 		this.country = country;
@@ -51,121 +49,105 @@ public class Member {
 		this.teams = teams;
 	}
 
-
-	public String getFirstName() {
-		return firstName;
+	public int getId() {
+		return id;
 	}
 
-	// Annotierungen der Getter sind default schon gesetzt und müssen nicht mehr nachgetragen werden.
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
+	public void setId(int id) {
+		this.id = id;
 	}
 
-
-	public String getLastName() {
-		return lastName;
+	public String getClanName() {
+		return clanName;
 	}
 
-
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
+	public void setClanName(String clanName) {
+		this.clanName = clanName;
 	}
 
-
-	public String getAddressStreet() {
-		return addressStreet;
+	public String getClanId() {
+		return clanId;
 	}
 
-
-	public void setAddressStreet(String addressStreet) {
-		this.addressStreet = addressStreet;
+	public void setClanId(String clanId) {
+		this.clanId = clanId;
 	}
 
-
-	public String getAddressNumber() {
-		return addressNumber;
+	public String getRealName() {
+		return realName;
 	}
 
-
-	public void setAddressNumber(String addressNumber) {
-		this.addressNumber = addressNumber;
+	public void setRealName(String realName) {
+		this.realName = realName;
 	}
 
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
 
 	public String getAddressPostCode() {
 		return addressPostCode;
 	}
 
-
 	public void setAddressPostCode(String addressPostCode) {
 		this.addressPostCode = addressPostCode;
 	}
-
 
 	public String getAddressCity() {
 		return addressCity;
 	}
 
-
 	public void setAddressCity(String addressCity) {
 		this.addressCity = addressCity;
 	}
-
 
 	public String getCountry() {
 		return country;
 	}
 
-
 	public void setCountry(String country) {
 		this.country = country;
 	}
-
 
 	public String getEmail() {
 		return email;
 	}
 
-
 	public void setEmail(String email) {
 		this.email = email;
 	}
-
 
 	public String getPhoneNumber() {
 		return phoneNumber;
 	}
 
-
 	public void setPhoneNumber(String phoneNumber) {
 		this.phoneNumber = phoneNumber;
 	}
-
 
 	public List<Role> getRoles() {
 		return roles;
 	}
 
-
 	public void setRoles(List<Role> roles) {
 		this.roles = roles;
 	}
-
 
 	public List<Social> getSocials() {
 		return socials;
 	}
 
-
 	public void setSocials(List<Social> socials) {
 		this.socials = socials;
 	}
 
-
 	public List<Game> getGames() {
 		return games;
 	}
-
 
 	public void setGames(List<Game> games) {
 		this.games = games;
@@ -176,44 +158,16 @@ public class Member {
 		return birthday;
 	}
 
-
 	public void setBirthday(LocalDate birthday) {
 		this.birthday = birthday;
 	}
-
 
 	public List<Team> getTeams() {
 		return teams;
 	}
 
-
 	public void setTeams(List<Team> teams) {
 		this.teams = teams;
 	}
-
-
-	public int getId() {
-		return id;
-	}
-	
-	
-	public void setId(int id) {
-		this.id = id;
-	}
-
-
-	@Override
-	public String toString() {
-		return "Member [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", addressStreet="
-				+ addressStreet + ", addressNumber=" + addressNumber + ", addressPostCode=" + addressPostCode
-				+ ", addressCity=" + addressCity + ", country=" + country + ", email=" + email + ", phoneNumber="
-				+ phoneNumber + ", birthday=" + birthday + "]";
-	}
-
-
-	
-	
-
-
 
 }
