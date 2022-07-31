@@ -18,14 +18,14 @@ public class Game {
 	List<Genre> genres = new ArrayList<Genre>();
 	List<Member> members = new ArrayList<Member>();
     List<Tournament> tournaments = new ArrayList<Tournament>();
-	private String gameAddidionalNotes;
+	private String gameAdditionalNotes;
 
 	public Game() {
 		super();
 	}
 
 	public Game(int id, String gameTitle, LocalDate releaseDate, List<Genre> genres, List<Member> members,
-			List<Tournament> tournaments, String gameAddidionalNotes) {
+			List<Tournament> tournaments, String gameAdditionalNotes) {
 		super();
 		this.id = id;
 		this.gameTitle = gameTitle;
@@ -33,7 +33,7 @@ public class Game {
 		this.genres = genres;
 		this.members = members;
 		this.tournaments = tournaments;
-		this.gameAddidionalNotes = gameAddidionalNotes;
+		this.gameAdditionalNotes = gameAdditionalNotes;
 	}
 
 	public String getGameTitle() {
@@ -96,14 +96,14 @@ public class Game {
 
 
 
-	public String getGameAddidionalNotes() {
-		return gameAddidionalNotes;
+	public String getGameAdditionalNotes() {
+		return gameAdditionalNotes;
 	}
 
 
 
-	public void setGameAddidionalNotes(String gameAddidionalNotes) {
-		this.gameAddidionalNotes = gameAddidionalNotes;
+	public void setGameAdditionalNotes(String gameAdditionalNotes) {
+		this.gameAdditionalNotes = gameAdditionalNotes;
 	}
 
 
