@@ -23,6 +23,7 @@ public class Member {
 	List<Game> games = new ArrayList<>();	
 	private LocalDate birthday;	
 	List<Team> teams = new ArrayList<>();
+	List<Event> events = new ArrayList<>();
 
 	public Member() {
 		super();
@@ -30,7 +31,7 @@ public class Member {
 
 	public Member(int id, String clanName, String clanId, String realName, String address, String addressPostCode,
 			String addressCity, String country, String email, String phoneNumber, List<Role> roles,
-			List<Social> socials, List<Game> games, LocalDate birthday, List<Team> teams) {
+			List<Social> socials, List<Game> games, LocalDate birthday, List<Team> teams, List<Event> events) {
 		super();
 		this.id = id;
 		this.clanName = clanName;
@@ -47,7 +48,10 @@ public class Member {
 		this.games = games;
 		this.birthday = birthday;
 		this.teams = teams;
+		this.events = events;
 	}
+
+
 
 	public int getId() {
 		return id;
@@ -169,5 +173,15 @@ public class Member {
 	public void setTeams(List<Team> teams) {
 		this.teams = teams;
 	}
+
+	public List<Event> getEvents() {
+		return events;
+	}
+
+	public void setEvents(List<Event> events) {
+		this.events = events;
+	}
+	
+	
 
 }
