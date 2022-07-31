@@ -12,7 +12,7 @@ public class Tournament {
 
 	
 	private int id;
-	private String touramentTitle;
+	private String tournamentTitle;
 	private String tournamentDescription;
 	private LocalDate tournamentDate;
 	private LocalTime tournamentTimeBeginn;
@@ -25,12 +25,12 @@ public class Tournament {
 		super();
 	}
 
-	public Tournament(int id, String touramentTitle, String tournamentDescription, LocalDate tournamentDate,
+	public Tournament(int id, String tournamentTitle, String tournamentDescription, LocalDate tournamentDate,
 			LocalTime tournamentTimeBeginn, LocalTime tournamentTimeEnd, List<Team> teams, Game game,
 			String tournamentResult) {
 		super();
 		this.id = id;
-		this.touramentTitle = touramentTitle;
+		this.tournamentTitle = tournamentTitle;
 		this.tournamentDescription = tournamentDescription;
 		this.tournamentDate = tournamentDate;
 		this.tournamentTimeBeginn = tournamentTimeBeginn;
@@ -42,14 +42,14 @@ public class Tournament {
 
 
 
-	public String getTouramentTitle() {
-		return touramentTitle;
+	public String getTournamentTitle() {
+		return tournamentTitle;
 	}
 
 
 
-	public void setTouramentTitle(String touramentTitle) {
-		this.touramentTitle = touramentTitle;
+	public void setTouramentTitle(String tournamentTitle) {
+		this.tournamentTitle = tournamentTitle;
 	}
 
 
