@@ -15,23 +15,20 @@ public class Revenue {
 	private String revenueDescription;
 	private double amount;
 	private LocalDate date;
-	private Partner partner;
-	List<RevenueType> revenueTypes = new ArrayList<>();
+	
 
 	public Revenue() {
 		super();
 	}
 
-	public Revenue(int id, String revenueTitle, String revenueDescription, double amount, LocalDate date, Partner partner,
-			List<RevenueType> revenueTypes) {
+	public Revenue(int id, String revenueTitle, String revenueDescription, double amount, LocalDate date) {
 		super();
 		this.id = id;
 		this.revenueTitle = revenueTitle;
 		this.revenueDescription = revenueDescription;
 		this.amount = amount;
 		this.date = date;
-		this.partner = partner;
-		this.revenueTypes = revenueTypes;
+		
 	}
 
 	public String getRevenueTitle() {
@@ -65,22 +62,6 @@ public class Revenue {
 
 	public void setDate(LocalDate date) {
 		this.date = date;
-	}
-
-	public Partner getPartner() {
-		return partner;
-	}
-
-	public void setPartner(Partner partner) {
-		this.partner = partner;
-	}
-
-	public List<RevenueType> getRevenueTypes() {
-		return revenueTypes;
-	}
-
-	public void setRevenueTypes(List<RevenueType> revenueTypes) {
-		this.revenueTypes = revenueTypes;
 	}
 
 	public int getId() {

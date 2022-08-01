@@ -5,6 +5,8 @@ import java.util.List;
 
 import javax.xml.bind.annotation.XmlRootElement;
 
+
+
 @XmlRootElement()
 public class Partner{	
 	
@@ -23,6 +25,8 @@ public class Partner{
 	private String email;	
 	private String phoneNumber;	
 	List<Social> socials = new ArrayList<>();
+	List<Revenue> revenues = new ArrayList<>();
+
 	
 	public Partner() {
 		super();
@@ -30,7 +34,7 @@ public class Partner{
 
 	public Partner(int id, String companyName, String contactPersonName, String contactPersonPhone, String contactPersonMail,
 			String firstName, String lastName, String adressStreet, String adressNumber, String adressPostCode,
-			String adressCity, String country, String email, String phoneNumber, List<Social> socials) {
+			String adressCity, String country, String email, String phoneNumber, List<Social> socials, List<Revenue> revenues) {
 		super();
 		this.id = id;
 		this.companyName = companyName;
@@ -47,6 +51,7 @@ public class Partner{
 		this.email = email;
 		this.phoneNumber = phoneNumber;
 		this.socials = socials;
+		this.revenues = revenues;
 	}
 
 
@@ -197,6 +202,16 @@ public class Partner{
 
 	public void setId(int id) {
 		this.id = id;
+	}
+
+	public List<Revenue> getRevenues() {
+		return revenues;
+	}
+
+	public void setRevenues(List<Revenue> revenues) {
+		this.revenues = revenues;
 	}	
+	
+	
 
 }
