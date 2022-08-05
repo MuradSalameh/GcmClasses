@@ -1,33 +1,56 @@
 package gcmClasses;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+import jakarta.xml.bind.annotation.XmlRootElement;
+import jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
+@XmlRootElement
 
-@XmlRootElement()
-public class Game {
+public class Game  implements Serializable{
+
+	private static final long serialVersionUID = 1L;
 
 	
 	private int id;
+
 	private String gameTitle;
+
+
 	private LocalDate releaseDate;
+
+
 	List<Genre> genres = new ArrayList<Genre>();
-	List<Member> members = new ArrayList<Member>();
+
+	
+	
+
+	Set<Member> members = new HashSet<>();
+	
+	
+		
+	
     List<Tournament> tournaments = new ArrayList<Tournament>();
+	
+	
 	private String gameAdditionalNotes;
+
+
 
 	public Game() {
 		super();
 	}
 
-	public Game(int id, String gameTitle, LocalDate releaseDate, List<Genre> genres, List<Member> members,
+
+
+	public Game(String gameTitle, LocalDate releaseDate, List<Genre> genres, Set<Member> members,
 			List<Tournament> tournaments, String gameAdditionalNotes) {
 		super();
-		this.id = id;
 		this.gameTitle = gameTitle;
 		this.releaseDate = releaseDate;
 		this.genres = genres;
@@ -35,6 +58,8 @@ public class Game {
 		this.tournaments = tournaments;
 		this.gameAdditionalNotes = gameAdditionalNotes;
 	}
+
+
 
 	public String getGameTitle() {
 		return gameTitle;
@@ -47,7 +72,7 @@ public class Game {
 	}
 
 
-	@XmlJavaTypeAdapter(value= LocalDateAdapter.class) //Annotierungen immer beim Getter
+	@XmlJavaTypeAdapter(value= LocalDateAdapter.class)
 	public LocalDate getReleaseDate() {
 		return releaseDate;
 	}
@@ -72,13 +97,13 @@ public class Game {
 
 
 
-	public List<Member> getMembers() {
+	public Set<Member> getMembers() {
 		return members;
 	}
 
 
 
-	public void setMembers(List<Member> members) {
+	public void setMembers(Set<Member> members) {
 		this.members = members;
 	}
 
@@ -110,10 +135,6 @@ public class Game {
 
 	public int getId() {
 		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
 	}
 
 

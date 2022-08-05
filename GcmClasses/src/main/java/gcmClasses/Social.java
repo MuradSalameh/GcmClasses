@@ -1,23 +1,31 @@
 package gcmClasses;
 
-import javax.xml.bind.annotation.XmlRootElement;
+import java.io.Serializable;
 
-@XmlRootElement()
-public class Social {	
+import javax.xml.bind.annotation.XmlRootElement;
+@XmlRootElement
+
+public class Social  implements Serializable{
+	
+	private static final long serialVersionUID = 1L;
+
 	
 	private int id;
-	private String socialPlatform;
+	
+	private String socialPlatform;	
+	
 	private String socialUsername;	
+	
 	private String socialLink;	
+	
 	private String socialNotes;
 	
 	public Social() {
 		super();
 	}
 
-	public Social(int id, String socialPlatform, String socialUsername, String socialLink, String socialNotes) {
+	public Social(String socialPlatform, String socialUsername, String socialLink, String socialNotes) {
 		super();
-		this.id = id;
 		this.socialPlatform = socialPlatform;
 		this.socialUsername = socialUsername;
 		this.socialLink = socialLink;
@@ -58,10 +66,6 @@ public class Social {
 
 	public int getId() {
 		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
 	}
 	
 	

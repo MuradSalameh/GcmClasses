@@ -1,21 +1,29 @@
 package gcmClasses;
 
-import javax.xml.bind.annotation.XmlRootElement;
+import java.io.Serializable;
 
-@XmlRootElement()
-public class Role {	
+import javax.xml.bind.annotation.XmlRootElement;
+@XmlRootElement
+
+public class Role  implements Serializable{
 	
+	private static final long serialVersionUID = 1L;
+
 	private int id;	
+	
 	private String roleName;	
-	private String roleDescription;	
+	
+	private String roleDescription;
+	
+	
     
 	public Role() {
 		super();
 	}
 
-	public Role(int id, String roleName, String roleDescription) {
+	public Role(String roleName, String roleDescription) {
 		super();
-		this.id = id;
+		
 		this.roleName = roleName;
 		this.roleDescription = roleDescription;
 	}
@@ -38,10 +46,6 @@ public class Role {
 
 	public void setRoleDescription(String roleDescription) {
 		this.roleDescription = roleDescription;
-	}
-
-	public void setId(int id) {
-		this.id = id;
 	}
 	
 	

@@ -1,16 +1,22 @@
 package gcmClasses;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.xml.bind.annotation.XmlRootElement;
+@XmlRootElement
 
-@XmlRootElement()
-public class Genre {
+public class Genre  implements Serializable{
+	
+	private static final long serialVersionUID = 1L;
+
+	private int id;
 	
 	
-	private int id;	
 	private String genreTitle;	
+
+	
     List<Game> games = new ArrayList<>();
 
 	
@@ -18,9 +24,8 @@ public class Genre {
 		super();
 	}
 
-	public Genre(int id, String genreTitle, List<Game> games) {
+	public Genre(String genreTitle, List<Game> games) {
 		super();
-		this.id = id;
 		this.genreTitle = genreTitle;
 		this.games = games;
 	}
@@ -43,10 +48,6 @@ public class Genre {
 
 	public int getId() {
 		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
 	}
 
 	

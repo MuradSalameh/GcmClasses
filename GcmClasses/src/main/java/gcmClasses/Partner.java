@@ -1,30 +1,49 @@
 package gcmClasses;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.xml.bind.annotation.XmlRootElement;
+@XmlRootElement
 
+public class Partner implements Serializable {
+	
+	private static final long serialVersionUID = 1L;
 
-
-@XmlRootElement()
-public class Partner{	
 	
 	private int id;		
+
 	private String companyName;
+	
 	private String contactPersonName;
+	
 	private String contactPersonPhone;
+	
 	private String contactPersonMail;
+
 	private String firstName;
-	private String lastName;
+
+	private String lastName;	
+
 	private String adressStreet;
+
 	private String adressNumber;
+
 	private String adressPostCode;
-	private String adressCity;
+
+	private String adressCity;	
+
 	private String country;	
+
 	private String email;	
+
 	private String phoneNumber;	
+
+
 	List<Social> socials = new ArrayList<>();
+	
+	
 	List<Revenue> revenues = new ArrayList<>();
 
 	
@@ -32,11 +51,12 @@ public class Partner{
 		super();
 	}
 
-	public Partner(int id, String companyName, String contactPersonName, String contactPersonPhone, String contactPersonMail,
+
+	public Partner(String companyName, String contactPersonName, String contactPersonPhone, String contactPersonMail,
 			String firstName, String lastName, String adressStreet, String adressNumber, String adressPostCode,
-			String adressCity, String country, String email, String phoneNumber, List<Social> socials, List<Revenue> revenues) {
+			String adressCity, String country, String email, String phoneNumber, List<Social> socials,
+			List<Revenue> revenues) {
 		super();
-		this.id = id;
 		this.companyName = companyName;
 		this.contactPersonName = contactPersonName;
 		this.contactPersonPhone = contactPersonPhone;
@@ -195,23 +215,18 @@ public class Partner{
 	}
 
 
-	public int getId() {
-		return id;
-	}
-
-
-	public void setId(int id) {
-		this.id = id;
-	}
-
 	public List<Revenue> getRevenues() {
 		return revenues;
 	}
 
+
 	public void setRevenues(List<Revenue> revenues) {
 		this.revenues = revenues;
+	}
+
+
+	public int getId() {
+		return id;
 	}	
-	
-	
 
 }

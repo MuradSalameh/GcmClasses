@@ -1,12 +1,20 @@
 package gcmClasses;
 
+import java.io.Serializable;
+
 import javax.xml.bind.annotation.XmlRootElement;
 
-@XmlRootElement()
-public class ExpenseType {
+@XmlRootElement
+
+public class ExpenseType  implements Serializable{
 	
-	private int id;	
-	private String expenseTitle;	
+	private static final long serialVersionUID = 1L;
+
+	
+	private int id;
+	
+	private String expenseTitle;
+	
 	private String expenseDescription;	
 	
 
@@ -15,9 +23,8 @@ public class ExpenseType {
 	}
 
 
-	public ExpenseType(int id, String expenseTitle, String expenseDescription) {
+	public ExpenseType(String expenseTitle, String expenseDescription) {
 		super();
-		this.id = id;
 		this.expenseTitle = expenseTitle;
 		this.expenseDescription = expenseDescription;
 	}
@@ -44,13 +51,6 @@ public class ExpenseType {
 
 	public int getId() {
 		return id;
-	}
-
-
-	public void setId(int id) {
-		this.id = id;
 	}	
-	
-	
 	
 }

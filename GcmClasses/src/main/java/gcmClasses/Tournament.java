@@ -1,36 +1,62 @@
 package gcmClasses;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.LocalTime;
-import java.util.ArrayList;
-import java.util.List;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+import java.util.HashSet;
+import java.util.Set;
 
-@XmlRootElement()
-public class Tournament {
+import jakarta.xml.bind.annotation.XmlRootElement;
+import jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
+
+@XmlRootElement
+
+public class Tournament  implements Serializable{
+
+	private static final long serialVersionUID = 1L;
 
 	
 	private int id;
-	private String tournamentTitle;
+
+	private String touramentTitle;
+
 	private String tournamentDescription;
+
 	private LocalDate tournamentDate;
+
 	private LocalTime tournamentTimeBeginn;
+
 	private LocalTime tournamentTimeEnd;
-	List<Team> teams = new ArrayList<>();
+	
+	Set<Team> teams = new HashSet<>();
+
+
     private Game game;
+    
+
 	private String tournamentResult;
+
+	/*
+	@PreRemove
+	public void checkAssociationBeforeRemoval() {
+		if(!this.teams.isEmpty()) {
+			throw new RuntimeException("Can't remove Tournament that has teams");
+		}
+	}
+*/
 
 	public Tournament() {
 		super();
 	}
 
-	public Tournament(int id, String tournamentTitle, String tournamentDescription, LocalDate tournamentDate,
-			LocalTime tournamentTimeBeginn, LocalTime tournamentTimeEnd, List<Team> teams, Game game,
+
+
+	public Tournament(String touramentTitle, String tournamentDescription, LocalDate tournamentDate,
+			LocalTime tournamentTimeBeginn, LocalTime tournamentTimeEnd, Set<Team> teams,Game game,
 			String tournamentResult) {
 		super();
-		this.id = id;
-		this.tournamentTitle = tournamentTitle;
+		this.touramentTitle = touramentTitle;
 		this.tournamentDescription = tournamentDescription;
 		this.tournamentDate = tournamentDate;
 		this.tournamentTimeBeginn = tournamentTimeBeginn;
@@ -42,14 +68,14 @@ public class Tournament {
 
 
 
-	public String getTournamentTitle() {
-		return tournamentTitle;
+	public String getTouramentTitle() {
+		return touramentTitle;
 	}
 
 
 
-	public void setTouramentTitle(String tournamentTitle) {
-		this.tournamentTitle = tournamentTitle;
+	public void setTouramentTitle(String touramentTitle) {
+		this.touramentTitle = touramentTitle;
 	}
 
 
@@ -65,7 +91,7 @@ public class Tournament {
 	}
 
 
-	@XmlJavaTypeAdapter(value= LocalDateAdapter.class) //Annotierungen immer beim Getter
+	@XmlJavaTypeAdapter(value= LocalDateAdapter.class)
 	public LocalDate getTournamentDate() {
 		return tournamentDate;
 	}
@@ -77,7 +103,7 @@ public class Tournament {
 	}
 
 
-	@XmlJavaTypeAdapter(value= LocalTimeAdapter.class) //Annotierungen immer beim Getter
+	@XmlJavaTypeAdapter(value= LocalTimeAdapter.class)
 	public LocalTime getTournamentTimeBeginn() {
 		return tournamentTimeBeginn;
 	}
@@ -89,45 +115,59 @@ public class Tournament {
 	}
 
 
-	@XmlJavaTypeAdapter(value= LocalTimeAdapter.class) //Annotierungen immer beim Getter
+	@XmlJavaTypeAdapter(value= LocalTimeAdapter.class)
 	public LocalTime getTournamentTimeEnd() {
 		return tournamentTimeEnd;
 	}
+
+
 
 	public void setTournamentTimeEnd(LocalTime tournamentTimeEnd) {
 		this.tournamentTimeEnd = tournamentTimeEnd;
 	}
 
-	public List<Team> getTeams() {
+
+
+	public Set<Team> getTeams() {
 		return teams;
 	}
 
-	public void setTeams(List<Team> teams) {
+
+
+	public void setTeams(Set<Team> teams) {
 		this.teams = teams;
 	}
+
+
 
 	public Game getGame() {
 		return game;
 	}
 
+
+
 	public void setGame(Game game) {
 		this.game = game;
 	}
+
+
 
 	public String getTournamentResult() {
 		return tournamentResult;
 	}
 
+
+
 	public void setTournamentResult(String tournamentResult) {
 		this.tournamentResult = tournamentResult;
 	}
+
+
 
 	public int getId() {
 		return id;
 	}
 
-	public void setId(int id) {
-		this.id = id;
-	}
+
 
 }

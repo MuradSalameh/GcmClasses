@@ -1,35 +1,48 @@
 package gcmClasses;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+import jakarta.xml.bind.annotation.XmlRootElement;
+import jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
-@XmlRootElement()
-public class Event {
+
+@XmlRootElement
+
+public class Event implements Serializable{
+
+	private static final long serialVersionUID = 1L;
 
 	
 	private int id;
+
 	private String eventTitle;
+
 	private String eventDescription;
+
 	private LocalDate date;
+
 	private LocalTime eventStartTime;
+
 	private LocalTime eventEndTime;
+
 	private String eventAddidtionalNotes;
+
 	private boolean reoccuring;
+
+
 	List<Member> members = new ArrayList<>();
 
 	public Event() {
 		super();
 	}
 
-	public Event(int id, String eventTitle, String eventDescription, LocalDate date, LocalTime eventStartTime,
+	public Event(String eventTitle, String eventDescription, LocalDate date, LocalTime eventStartTime,
 			LocalTime eventEndTime, String eventAddidtionalNotes, boolean reoccuring, List<Member> members) {
 		super();
-		this.id = id;
 		this.eventTitle = eventTitle;
 		this.eventDescription = eventDescription;
 		this.date = date;
@@ -38,14 +51,6 @@ public class Event {
 		this.eventAddidtionalNotes = eventAddidtionalNotes;
 		this.reoccuring = reoccuring;
 		this.members = members;
-	}
-
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
 	}
 
 	public String getEventTitle() {
@@ -63,8 +68,9 @@ public class Event {
 	public void setEventDescription(String eventDescription) {
 		this.eventDescription = eventDescription;
 	}
-
-	@XmlJavaTypeAdapter(value= LocalDateAdapter.class) //Annotierungen immer beim Getter
+	
+	
+	@XmlJavaTypeAdapter(value= LocalDateAdapter.class)
 	public LocalDate getDate() {
 		return date;
 	}
@@ -113,6 +119,14 @@ public class Event {
 
 	public void setMembers(List<Member> members) {
 		this.members = members;
-	}	
+	}
+
+	public int getId() {
+		return id;
+	}
+	
+	
+
+
 
 }

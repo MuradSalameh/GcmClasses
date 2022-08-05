@@ -1,17 +1,23 @@
 package gcmClasses;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 
 import javax.xml.bind.annotation.XmlRootElement;
+@XmlRootElement
 
-@XmlRootElement()
-public class Team {
-	
-	private int id;
+public class Team  implements Serializable{
+
+	private static final long serialVersionUID = 1L;
+
+
+	private int id;	
+
 	private String teamName;
+
 	private String teamDescription;
-	List<Member> members = new ArrayList<>();
+	private Set<Member> members = new HashSet<>();	
 
 	
 	public Team() {
@@ -19,9 +25,8 @@ public class Team {
 	}
 
 
-	public Team(int id, String teamName, String teamDescription, List<Member> members) {
+	public Team(String teamName, String teamDescription, Set<Member> members) {
 		super();
-		this.id = id;
 		this.teamName = teamName;
 		this.teamDescription = teamDescription;
 		this.members = members;
@@ -48,12 +53,12 @@ public class Team {
 	}
 
 
-	public List<Member> getMembers() {
+	public Set<Member> getMembers() {
 		return members;
 	}
 
 
-	public void setMembers(List<Member> members) {
+	public void setMembers(Set<Member> members) {
 		this.members = members;
 	}
 
@@ -63,11 +68,6 @@ public class Team {
 	}
 
 
-	public void setId(int id) {
-		this.id = id;
-	}
-	
-	
 
 }
 
