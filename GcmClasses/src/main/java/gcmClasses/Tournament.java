@@ -170,4 +170,16 @@ public class Tournament  implements Serializable{
 
 
 
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+
+
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+
+
 }

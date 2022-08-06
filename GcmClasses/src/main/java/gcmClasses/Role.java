@@ -47,6 +47,14 @@ public class Role  implements Serializable{
 	public void setRoleDescription(String roleDescription) {
 		this.roleDescription = roleDescription;
 	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
 	
 	
 	

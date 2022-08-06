@@ -274,6 +274,20 @@ public class Member  implements Serializable {
 	public int getId() {
 		return id;
 	}
+	
+	
+
+
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+
+
+
+	public void setId(int id) {
+		this.id = id;
+	}
 
 
 
