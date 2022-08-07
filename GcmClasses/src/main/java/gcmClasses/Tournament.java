@@ -8,6 +8,7 @@ import java.util.Set;
 
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlRootElement;
+import jakarta.xml.bind.annotation.XmlTransient;
 import jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 
@@ -135,7 +136,7 @@ public class Tournament  implements Serializable{
 	}
 
 
-
+	@XmlTransient
 	public Set<Team> getTeams() {
 		return teams;
 	}

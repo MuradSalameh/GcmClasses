@@ -9,6 +9,7 @@ import java.util.Set;
 
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlRootElement;
+import jakarta.xml.bind.annotation.XmlTransient;
 import jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 @XmlRootElement
@@ -86,8 +87,7 @@ public class Game  implements Serializable{
 		this.releaseDate = releaseDate;
 	}
 
-
-	@XmlElement(name="Genres")
+	@XmlTransient
 	public List<Genre> getGenres() {
 		return genres;
 	}
@@ -98,8 +98,7 @@ public class Game  implements Serializable{
 		this.genres = genres;
 	}
 
-
-	@XmlElement(name="Members")
+	@XmlTransient
 	public Set<Member> getMembers() {
 		return members;
 	}
@@ -110,8 +109,7 @@ public class Game  implements Serializable{
 		this.members = members;
 	}
 
-
-	@XmlElement(name="Tournaments")
+	@XmlTransient
 	public List<Tournament> getTournaments() {
 		return tournaments;
 	}

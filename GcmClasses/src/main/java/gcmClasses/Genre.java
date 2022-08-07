@@ -6,7 +6,7 @@ import java.util.List;
 
 
 import jakarta.xml.bind.annotation.XmlRootElement;
-
+import jakarta.xml.bind.annotation.XmlTransient;
 import jakarta.xml.bind.annotation.XmlElement;
 @XmlRootElement
 
@@ -40,7 +40,7 @@ public class Genre  implements Serializable{
 		this.genreTitle = genreTitle;
 	}
 
-	@XmlElement(name="Games")
+	@XmlTransient
 	public List<Game> getGames() {
 		return games;
 	}
