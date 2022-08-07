@@ -8,6 +8,7 @@ import java.util.List;
 
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlRootElement;
+import jakarta.xml.bind.annotation.XmlTransient;
 import jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 
@@ -34,6 +35,7 @@ public class Event implements Serializable{
 
 	private boolean reoccuring;
 
+	//join table for members
 
 	List<Member> members = new ArrayList<>();
 
@@ -71,8 +73,8 @@ public class Event implements Serializable{
 	public void setEventDescription(String eventDescription) {
 		this.eventDescription = eventDescription;
 	}
-	
-	
+
+
 	@XmlJavaTypeAdapter(value= LocalDateAdapter.class)
 	@XmlElement(name="Date")
 	public LocalDate getDate() {
@@ -121,6 +123,7 @@ public class Event implements Serializable{
 		this.reoccuring = reoccuring;
 	}
 
+	@XmlTransient
 	public List<Member> getMembers() {
 		return members;
 	}
@@ -129,10 +132,13 @@ public class Event implements Serializable{
 		this.members = members;
 	}
 
+
 	@XmlElement(name="ID",required=true)
 	public int getId() {
 		return id;
 	}
+	
+	
 
 	public static long getSerialversionuid() {
 		return serialVersionUID;
@@ -141,8 +147,7 @@ public class Event implements Serializable{
 	public void setId(int id) {
 		this.id = id;
 	}
-	
-	
+
 	@Override
 	public String toString() {
 		return "\nEvent id=" + id 
@@ -156,6 +161,9 @@ public class Event implements Serializable{
 				+ "\n----------------------------------"
 				+ "\n";
 	}
+
+
+
 
 
 }

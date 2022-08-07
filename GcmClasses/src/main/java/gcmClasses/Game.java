@@ -7,6 +7,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlRootElement;
 import jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
@@ -16,7 +17,7 @@ public class Game  implements Serializable{
 
 	private static final long serialVersionUID = 1L;
 
-	
+
 	private int id;
 
 	private String gameTitle;
@@ -24,6 +25,7 @@ public class Game  implements Serializable{
 
 	private LocalDate releaseDate;
 
+	// join table genre games
 
 	List<Genre> genres = new ArrayList<Genre>();
 
@@ -34,7 +36,7 @@ public class Game  implements Serializable{
 	
 	
 		
-	
+
     List<Tournament> tournaments = new ArrayList<Tournament>();
 	
 	
@@ -60,7 +62,7 @@ public class Game  implements Serializable{
 	}
 
 
-
+	@XmlElement(name="GameTitle")
 	public String getGameTitle() {
 		return gameTitle;
 	}
@@ -73,6 +75,7 @@ public class Game  implements Serializable{
 
 
 	@XmlJavaTypeAdapter(value= LocalDateAdapter.class)
+	@XmlElement(name="ReleaseDate")
 	public LocalDate getReleaseDate() {
 		return releaseDate;
 	}
@@ -84,7 +87,7 @@ public class Game  implements Serializable{
 	}
 
 
-
+	@XmlElement(name="Genres")
 	public List<Genre> getGenres() {
 		return genres;
 	}
@@ -96,7 +99,7 @@ public class Game  implements Serializable{
 	}
 
 
-
+	@XmlElement(name="Members")
 	public Set<Member> getMembers() {
 		return members;
 	}
@@ -108,7 +111,7 @@ public class Game  implements Serializable{
 	}
 
 
-
+	@XmlElement(name="Tournaments")
 	public List<Tournament> getTournaments() {
 		return tournaments;
 	}
@@ -120,7 +123,7 @@ public class Game  implements Serializable{
 	}
 
 
-
+	@XmlElement(name="GameAdditionalNotes")
 	public String getGameAdditionalNotes() {
 		return gameAdditionalNotes;
 	}
@@ -132,7 +135,7 @@ public class Game  implements Serializable{
 	}
 
 
-
+	@XmlElement(name="ID",required=true)
 	public int getId() {
 		return id;
 	}
@@ -148,6 +151,20 @@ public class Game  implements Serializable{
 	public void setId(int id) {
 		this.id = id;
 	}
+
+
+
+	@Override
+	public String toString() {
+		return "\nGame id=" + id 
+				+ "\ngameTitle=" + gameTitle 
+				+ "\nreleaseDate=" + releaseDate 
+				+ "\ngameAdditionalNotes="	+ getGameAdditionalNotes()
+				+ "\n----------------------------------"
+				+ "\n";
+	}
+	
+	
 
 
 	

@@ -13,9 +13,8 @@ import jakarta.xml.bind.annotation.XmlTransient;
 import jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 
+
 @XmlRootElement(name = "Member")
-
-
 public class Member  implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -47,12 +46,16 @@ public class Member  implements Serializable {
 	List<Social> socials = new ArrayList<>();
 
 
+
+	
 	Set<Game> games = new HashSet<>();
 
 
 
 
+	
 	Set<Event> events = new HashSet<>();
+
 
 	private LocalDate birthday;
 
@@ -274,8 +277,6 @@ public class Member  implements Serializable {
 	public int getId() {
 		return id;
 	}
-	
-	
 
 
 

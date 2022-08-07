@@ -6,6 +6,7 @@ import java.time.LocalTime;
 import java.util.HashSet;
 import java.util.Set;
 
+import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlRootElement;
 import jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
@@ -28,10 +29,14 @@ public class Tournament  implements Serializable{
 	private LocalTime tournamentTimeBeginn;
 
 	private LocalTime tournamentTimeEnd;
-	
+
+
 	Set<Team> teams = new HashSet<>();
 
 
+
+	
+	
     private Game game;
     
 
@@ -67,7 +72,7 @@ public class Tournament  implements Serializable{
 	}
 
 
-
+	@XmlElement(name="TournamentTitle")
 	public String getTouramentTitle() {
 		return touramentTitle;
 	}
@@ -79,7 +84,7 @@ public class Tournament  implements Serializable{
 	}
 
 
-
+	@XmlElement(name="TournamentDescription")
 	public String getTournamentDescription() {
 		return tournamentDescription;
 	}
@@ -92,6 +97,7 @@ public class Tournament  implements Serializable{
 
 
 	@XmlJavaTypeAdapter(value= LocalDateAdapter.class)
+	@XmlElement(name="TournamentDate")
 	public LocalDate getTournamentDate() {
 		return tournamentDate;
 	}
@@ -104,6 +110,7 @@ public class Tournament  implements Serializable{
 
 
 	@XmlJavaTypeAdapter(value= LocalTimeAdapter.class)
+	@XmlElement(name="TournamentTimeBeginn")
 	public LocalTime getTournamentTimeBeginn() {
 		return tournamentTimeBeginn;
 	}
@@ -116,6 +123,7 @@ public class Tournament  implements Serializable{
 
 
 	@XmlJavaTypeAdapter(value= LocalTimeAdapter.class)
+	@XmlElement(name="TournamentTimeEnd")
 	public LocalTime getTournamentTimeEnd() {
 		return tournamentTimeEnd;
 	}
@@ -139,7 +147,7 @@ public class Tournament  implements Serializable{
 	}
 
 
-
+	@XmlElement(name="Game")
 	public Game getGame() {
 		return game;
 	}
@@ -151,7 +159,7 @@ public class Tournament  implements Serializable{
 	}
 
 
-
+	@XmlElement(name="TournamentResult")
 	public String getTournamentResult() {
 		return tournamentResult;
 	}
@@ -163,7 +171,7 @@ public class Tournament  implements Serializable{
 	}
 
 
-
+	@XmlElement(name="ID",required=true)
 	public int getId() {
 		return id;
 	}
@@ -178,6 +186,22 @@ public class Tournament  implements Serializable{
 
 	public void setId(int id) {
 		this.id = id;
+	}
+
+
+
+	@Override
+	public String toString() {
+		return "\nTournament [id=" + id 
+				+ "\ntouramentTitle=" + touramentTitle 
+				+ "\ntournamentDescription="+ tournamentDescription 
+				+ "\ntournamentDate=" + tournamentDate 
+				+ "\ntournamentTimeBeginn="	+ tournamentTimeBeginn 
+				+ "\ntournamentTimeEnd=" + tournamentTimeEnd 
+				+ "\ngame=" + game
+				+ "\ntournamentResult=" + tournamentResult 
+				+ "\n----------------------------------"
+				+ "\n";
 	}
 
 

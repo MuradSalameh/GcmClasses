@@ -3,10 +3,10 @@ package gcmClasses;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-
-import javax.xml.bind.annotation.XmlRootElement;
+import jakarta.xml.bind.annotation.XmlElement;
+import jakarta.xml.bind.annotation.XmlRootElement;
+import jakarta.xml.bind.annotation.XmlTransient;
 @XmlRootElement
-
 public class Partner implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
@@ -40,9 +40,7 @@ public class Partner implements Serializable {
 
 	private String phoneNumber;	
 
-
 	List<Social> socials = new ArrayList<>();
-	
 	
 	List<Revenue> revenues = new ArrayList<>();
 
@@ -74,7 +72,7 @@ public class Partner implements Serializable {
 		this.revenues = revenues;
 	}
 
-
+	@XmlElement(name="CompanyName")
 	public String getCompanyName() {
 		return companyName;
 	}
@@ -84,7 +82,7 @@ public class Partner implements Serializable {
 		this.companyName = companyName;
 	}
 
-
+	@XmlElement(name="ContactPersonName")
 	public String getContactPersonName() {
 		return contactPersonName;
 	}
@@ -94,7 +92,7 @@ public class Partner implements Serializable {
 		this.contactPersonName = contactPersonName;
 	}
 
-
+	@XmlElement(name="ContactPersonPhone")
 	public String getContactPersonPhone() {
 		return contactPersonPhone;
 	}
@@ -104,7 +102,7 @@ public class Partner implements Serializable {
 		this.contactPersonPhone = contactPersonPhone;
 	}
 
-
+	@XmlElement(name="ContactPersonMail")
 	public String getContactPersonMail() {
 		return contactPersonMail;
 	}
@@ -114,7 +112,7 @@ public class Partner implements Serializable {
 		this.contactPersonMail = contactPersonMail;
 	}
 
-
+	@XmlElement(name="FirstName")
 	public String getFirstName() {
 		return firstName;
 	}
@@ -124,7 +122,7 @@ public class Partner implements Serializable {
 		this.firstName = firstName;
 	}
 
-
+	@XmlElement(name="LastName")
 	public String getLastName() {
 		return lastName;
 	}
@@ -134,7 +132,7 @@ public class Partner implements Serializable {
 		this.lastName = lastName;
 	}
 
-
+	@XmlElement(name="AddressStreet")
 	public String getAdressStreet() {
 		return adressStreet;
 	}
@@ -144,7 +142,7 @@ public class Partner implements Serializable {
 		this.adressStreet = adressStreet;
 	}
 
-
+	@XmlElement(name="AddressNumber")
 	public String getAdressNumber() {
 		return adressNumber;
 	}
@@ -154,7 +152,7 @@ public class Partner implements Serializable {
 		this.adressNumber = adressNumber;
 	}
 
-
+	@XmlElement(name="AddressPostCode")
 	public String getAdressPostCode() {
 		return adressPostCode;
 	}
@@ -164,7 +162,7 @@ public class Partner implements Serializable {
 		this.adressPostCode = adressPostCode;
 	}
 
-
+	@XmlElement(name="AddressCity")
 	public String getAdressCity() {
 		return adressCity;
 	}
@@ -174,7 +172,7 @@ public class Partner implements Serializable {
 		this.adressCity = adressCity;
 	}
 
-
+	@XmlElement(name="Country")
 	public String getCountry() {
 		return country;
 	}
@@ -184,7 +182,7 @@ public class Partner implements Serializable {
 		this.country = country;
 	}
 
-
+	@XmlElement(name="Email")
 	public String getEmail() {
 		return email;
 	}
@@ -194,7 +192,7 @@ public class Partner implements Serializable {
 		this.email = email;
 	}
 
-
+	@XmlElement(name="PhoneNumber")
 	public String getPhoneNumber() {
 		return phoneNumber;
 	}
@@ -204,7 +202,7 @@ public class Partner implements Serializable {
 		this.phoneNumber = phoneNumber;
 	}
 
-
+	@XmlTransient
 	public List<Social> getSocials() {
 		return socials;
 	}
@@ -214,22 +212,23 @@ public class Partner implements Serializable {
 		this.socials = socials;
 	}
 
-
+	@XmlTransient
 	public List<Revenue> getRevenues() {
 		return revenues;
 	}
 
-
+	
 	public void setRevenues(List<Revenue> revenues) {
 		this.revenues = revenues;
 	}
 
-
+	@XmlElement(name="ID",required=true)
 	public int getId() {
 		return id;
 	}
 
 
+	
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
@@ -237,6 +236,25 @@ public class Partner implements Serializable {
 
 	public void setId(int id) {
 		this.id = id;
+	}
+
+
+	@Override
+	public String toString() {
+		return "\nPartner id=" + id 
+				+ "\ncompanyName=" + companyName 
+				+ "\ncontactPersonName=" + contactPersonName
+				+ "\ncontactPersonPhone=" + contactPersonPhone 
+				+ "\ncontactPersonMail=" + contactPersonMail
+				+ "\nfirstName=" + firstName 
+				+ "\nlastName=" + lastName 
+				+ "\nadressStreet=" + adressStreet
+				+ "\nadressNumber=" + adressNumber 
+				+ "\nadressPostCode=" + adressPostCode 
+				+ "\nadressCity=" + adressCity
+				+ "\ncountry=" + country 
+				+ "\nemail=" + email 
+				+ "\nphoneNumber=" + phoneNumber;
 	}	
 	
 	

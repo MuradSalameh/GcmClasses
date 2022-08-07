@@ -3,21 +3,28 @@ package gcmClasses;
 import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
-
-import javax.xml.bind.annotation.XmlRootElement;
+import jakarta.xml.bind.annotation.XmlElement;
+import jakarta.xml.bind.annotation.XmlRootElement;
 @XmlRootElement
 
 public class Team  implements Serializable{
 
 	private static final long serialVersionUID = 1L;
 
-
+	
 	private int id;	
 
 	private String teamName;
 
 	private String teamDescription;
-	private Set<Member> members = new HashSet<>();	
+	
+	
+	
+	
+	
+	
+	
+		private Set<Member> members = new HashSet<>();	
 
 	
 	public Team() {
@@ -32,7 +39,7 @@ public class Team  implements Serializable{
 		this.members = members;
 	}
 
-
+	@XmlElement(name="Teamname")
 	public String getTeamName() {
 		return teamName;
 	}
@@ -43,6 +50,7 @@ public class Team  implements Serializable{
 	}
 
 
+	@XmlElement(name="TeamDescription")
 	public String getTeamDescription() {
 		return teamDescription;
 	}
@@ -52,7 +60,7 @@ public class Team  implements Serializable{
 		this.teamDescription = teamDescription;
 	}
 
-
+	
 	public Set<Member> getMembers() {
 		return members;
 	}
@@ -62,12 +70,13 @@ public class Team  implements Serializable{
 		this.members = members;
 	}
 
-
+	@XmlElement(name="ID",required=true)
 	public int getId() {
 		return id;
 	}
 
 
+	
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
@@ -77,6 +86,15 @@ public class Team  implements Serializable{
 		this.id = id;
 	}
 
+
+	@Override
+	public String toString() {
+		return "\nTeam [id=" + id 
+				+ "\nteamName=" + teamName 
+				+ "\nteamDescription=" + teamDescription 				
+				+ "\n----------------------------------"
+				+ "\n";
+	}
 
 
 }

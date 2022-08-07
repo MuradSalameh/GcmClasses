@@ -1,15 +1,14 @@
 package gcmClasses;
 
 import java.io.Serializable;
-
-import javax.xml.bind.annotation.XmlRootElement;
+import jakarta.xml.bind.annotation.XmlElement;
+import jakarta.xml.bind.annotation.XmlRootElement;
 @XmlRootElement
 
 public class Social  implements Serializable{
 	
 	private static final long serialVersionUID = 1L;
 
-	
 	private int id;
 	
 	private String socialPlatform;	
@@ -32,6 +31,7 @@ public class Social  implements Serializable{
 		this.socialNotes = socialNotes;
 	}
 
+	@XmlElement(name="SocialPlatform")
 	public String getSocialPlatform() {
 		return socialPlatform;
 	}
@@ -40,6 +40,7 @@ public class Social  implements Serializable{
 		this.socialPlatform = socialPlatform;
 	}
 
+	@XmlElement(name="SocialUsername")
 	public String getSocialUsername() {
 		return socialUsername;
 	}
@@ -48,6 +49,7 @@ public class Social  implements Serializable{
 		this.socialUsername = socialUsername;
 	}
 
+	@XmlElement(name="SocialLink")
 	public String getSocialLink() {
 		return socialLink;
 	}
@@ -56,6 +58,7 @@ public class Social  implements Serializable{
 		this.socialLink = socialLink;
 	}
 
+	@XmlElement(name="SocialNotes")
 	public String getSocialNotes() {
 		return socialNotes;
 	}
@@ -63,17 +66,32 @@ public class Social  implements Serializable{
 	public void setSocialNotes(String socialNotes) {
 		this.socialNotes = socialNotes;
 	}
-
+	
+	@XmlElement(name="ID",required=true)
 	public int getId() {
 		return id;
 	}
 
+	
+	
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
 
 	public void setId(int id) {
 		this.id = id;
+	}
+
+	@Override
+	public String toString() {
+		return "\nSocial [id=" + id 
+				+ "\nsocialPlatform=" + socialPlatform 
+				+ "\nsocialUsername=" + socialUsername
+				+ "\nsocialLink=" + socialLink 
+				+ "\nsocialNotes=" + socialNotes 
+				+ "\n----------------------------------"
+				+ "\n";
+				
 	}
 	
 	

@@ -4,7 +4,10 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.xml.bind.annotation.XmlRootElement;
+
+import jakarta.xml.bind.annotation.XmlRootElement;
+
+import jakarta.xml.bind.annotation.XmlElement;
 @XmlRootElement
 
 public class Genre  implements Serializable{
@@ -13,10 +16,8 @@ public class Genre  implements Serializable{
 
 	private int id;
 	
-	
 	private String genreTitle;	
 
-	
     List<Game> games = new ArrayList<>();
 
 	
@@ -30,6 +31,7 @@ public class Genre  implements Serializable{
 		this.games = games;
 	}
 
+	@XmlElement(name="GenreTitle")
 	public String getGenreTitle() {
 		return genreTitle;
 	}
@@ -38,6 +40,7 @@ public class Genre  implements Serializable{
 		this.genreTitle = genreTitle;
 	}
 
+	@XmlElement(name="Games")
 	public List<Game> getGames() {
 		return games;
 	}
@@ -46,9 +49,12 @@ public class Genre  implements Serializable{
 		this.games = games;
 	}
 
+	@XmlElement(name="ID",required=true)
 	public int getId() {
 		return id;
 	}
+	
+	
 
 	public static long getSerialversionuid() {
 		return serialVersionUID;
@@ -56,6 +62,14 @@ public class Genre  implements Serializable{
 
 	public void setId(int id) {
 		this.id = id;
+	}
+
+	@Override
+	public String toString() {
+		return "\nGenre id=" + id 
+				+ "\ngenreTitle=" + genreTitle
+				+ "\n----------------------------------"
+				+ "\n";
 	}
 
 	
