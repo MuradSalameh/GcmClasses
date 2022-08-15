@@ -154,12 +154,8 @@ public class Game  implements Serializable{
 
 	@Override
 	public String toString() {
-		return "\nGame id=" + id 
-				+ "\ngameTitle=" + gameTitle 
-				+ "\nreleaseDate=" + releaseDate 
-				+ "\ngameAdditionalNotes="	+ getGameAdditionalNotes()
-				+ "\n----------------------------------"
-				+ "\n";
+		return gameTitle ;
+				
 	}
 	
 	
