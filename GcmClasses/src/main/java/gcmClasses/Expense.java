@@ -2,14 +2,8 @@ package gcmClasses;
 
 import java.io.Serializable;
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
-
-
-
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlRootElement;
-import jakarta.xml.bind.annotation.XmlTransient;
 import jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 
@@ -32,21 +26,19 @@ public class Expense  implements Serializable{
 	private String recipientName;
 	
 
-	List<ExpenseType> expenseTypes = new ArrayList<>();
+
 
 	public Expense() {
 		super();
 	}
 
-	public Expense(String expenseTitle, String expenseDescription, double amount, LocalDate date, String recipientName,
-			List<ExpenseType> expenseTypes) {
+	public Expense(String expenseTitle, String expenseDescription, double amount, LocalDate date, String recipientName) {
 		super();
 		this.expenseTitle = expenseTitle;
 		this.expenseDescription = expenseDescription;
 		this.amount = amount;
 		this.date = date;
 		this.recipientName = recipientName;
-		this.expenseTypes = expenseTypes;
 	}
 
 	@XmlElement(name="ExpenseTitle")
@@ -95,15 +87,6 @@ public class Expense  implements Serializable{
 		this.recipientName = recipientName;
 	}
 
-	@XmlTransient
-	public List<ExpenseType> getExpenseTypes() {
-		return expenseTypes;
-	}
-
-	
-	public void setExpenseTypes(List<ExpenseType> expenseTypes) {
-		this.expenseTypes = expenseTypes;
-	}
 
 	@XmlElement(name="ID",required=true)
 	public int getId() {
