@@ -17,17 +17,11 @@ import jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 public class Game implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-
 	private int id;
-
 	private String gameTitle;
-
 	private LocalDate releaseDate;
-
 	Set<Member> members = new HashSet<>();
-
 	List<Tournament> tournaments = new ArrayList<Tournament>();
-
 	private String gameAdditionalNotes;
 
 	public Game() {

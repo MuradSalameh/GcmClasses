@@ -2,37 +2,29 @@ package gcmClasses;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlRootElement;
 import jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
-
 @XmlRootElement
-public class Expense  implements Serializable{
-	
+public class Expense implements Serializable {
+
 	private static final long serialVersionUID = 1L;
 
-
 	private int id;
-	
 	private String expenseTitle;
-	
 	private String expenseDescription;
-	
 	private double amount;
-	
 	private LocalDate date;
-	
 	private String recipientName;
-	
-
-
 
 	public Expense() {
 		super();
 	}
 
-	public Expense(String expenseTitle, String expenseDescription, double amount, LocalDate date, String recipientName) {
+	public Expense(String expenseTitle, String expenseDescription, double amount, LocalDate date,
+			String recipientName) {
 		super();
 		this.expenseTitle = expenseTitle;
 		this.expenseDescription = expenseDescription;
@@ -41,7 +33,7 @@ public class Expense  implements Serializable{
 		this.recipientName = recipientName;
 	}
 
-	@XmlElement(name="ExpenseTitle")
+	@XmlElement(name = "ExpenseTitle")
 	public String getExpenseTitle() {
 		return expenseTitle;
 	}
@@ -50,7 +42,7 @@ public class Expense  implements Serializable{
 		this.expenseTitle = expenseTitle;
 	}
 
-	@XmlElement(name="ExpenseDescription")
+	@XmlElement(name = "ExpenseDescription")
 	public String getExpenseDescription() {
 		return expenseDescription;
 	}
@@ -59,7 +51,7 @@ public class Expense  implements Serializable{
 		this.expenseDescription = expenseDescription;
 	}
 
-	@XmlElement(name="Amount")
+	@XmlElement(name = "Amount")
 	public double getAmount() {
 		return amount;
 	}
@@ -67,9 +59,9 @@ public class Expense  implements Serializable{
 	public void setAmount(double amount) {
 		this.amount = amount;
 	}
-	
-	@XmlJavaTypeAdapter(value= LocalDateAdapter.class)
-	@XmlElement(name="Date")
+
+	@XmlJavaTypeAdapter(value = LocalDateAdapter.class)
+	@XmlElement(name = "Date")
 	public LocalDate getDate() {
 		return date;
 	}
@@ -78,7 +70,7 @@ public class Expense  implements Serializable{
 		this.date = date;
 	}
 
-	@XmlElement(name="RecipientName")
+	@XmlElement(name = "RecipientName")
 	public String getRecipientName() {
 		return recipientName;
 	}
@@ -87,13 +79,10 @@ public class Expense  implements Serializable{
 		this.recipientName = recipientName;
 	}
 
-
-	@XmlElement(name="ID",required=true)
+	@XmlElement(name = "ID", required = true)
 	public int getId() {
 		return id;
 	}
-	
-	
 
 	public static long getSerialversionuid() {
 		return serialVersionUID;
@@ -105,16 +94,9 @@ public class Expense  implements Serializable{
 
 	@Override
 	public String toString() {
-		return "\nExpense id=" + id 
-				+ "\nexpenseTitle=" + expenseTitle 
-				+ "\nexpenseDescription=" + expenseDescription
-				+ "\namount=" + amount 
-				+ "\ndate=" + date 
-				+ "\nrecipientName=" + recipientName
-				+ "\n----------------------------------"
-				+ "\n";
+		return "\nExpense id=" + id + "\nexpenseTitle=" + expenseTitle + "\nexpenseDescription=" + expenseDescription
+				+ "\namount=" + amount + "\ndate=" + date + "\nrecipientName=" + recipientName
+				+ "\n----------------------------------" + "\n";
 	}
-	
-	
-	
+
 }

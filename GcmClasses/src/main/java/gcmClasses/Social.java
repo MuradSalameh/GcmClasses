@@ -1,24 +1,20 @@
 package gcmClasses;
 
 import java.io.Serializable;
+
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement
-public class Social  implements Serializable{
-	
-	private static final long serialVersionUID = 1L;
+public class Social implements Serializable {
 
+	private static final long serialVersionUID = 1L;
 	private int id;
-	
-	private String socialPlatform;	
-	
-	private String socialUsername;	
-	
-	private String socialLink;	
-	
+	private String socialPlatform;
+	private String socialUsername;
+	private String socialLink;
 	private String socialNotes;
-	
+
 	public Social() {
 		super();
 	}
@@ -31,7 +27,7 @@ public class Social  implements Serializable{
 		this.socialNotes = socialNotes;
 	}
 
-	@XmlElement(name="SocialPlatform")
+	@XmlElement(name = "SocialPlatform")
 	public String getSocialPlatform() {
 		return socialPlatform;
 	}
@@ -40,7 +36,7 @@ public class Social  implements Serializable{
 		this.socialPlatform = socialPlatform;
 	}
 
-	@XmlElement(name="SocialUsername")
+	@XmlElement(name = "SocialUsername")
 	public String getSocialUsername() {
 		return socialUsername;
 	}
@@ -49,7 +45,7 @@ public class Social  implements Serializable{
 		this.socialUsername = socialUsername;
 	}
 
-	@XmlElement(name="SocialLink")
+	@XmlElement(name = "SocialLink")
 	public String getSocialLink() {
 		return socialLink;
 	}
@@ -58,7 +54,7 @@ public class Social  implements Serializable{
 		this.socialLink = socialLink;
 	}
 
-	@XmlElement(name="SocialNotes")
+	@XmlElement(name = "SocialNotes")
 	public String getSocialNotes() {
 		return socialNotes;
 	}
@@ -66,14 +62,12 @@ public class Social  implements Serializable{
 	public void setSocialNotes(String socialNotes) {
 		this.socialNotes = socialNotes;
 	}
-	
-	@XmlElement(name="ID",required=true)
+
+	@XmlElement(name = "ID", required = true)
 	public int getId() {
 		return id;
 	}
 
-	
-	
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
@@ -84,17 +78,10 @@ public class Social  implements Serializable{
 
 	@Override
 	public String toString() {
-		return "\nSocial [id=" + id 
-				+ "\nsocialPlatform=" + socialPlatform 
-				+ "\nsocialUsername=" + socialUsername
-				+ "\nsocialLink=" + socialLink 
-				+ "\nsocialNotes=" + socialNotes 
-				+ "\n----------------------------------"
+		return "\nSocial [id=" + id + "\nsocialPlatform=" + socialPlatform + "\nsocialUsername=" + socialUsername
+				+ "\nsocialLink=" + socialLink + "\nsocialNotes=" + socialNotes + "\n----------------------------------"
 				+ "\n";
-				
+
 	}
-	
-	
 
 }
-
