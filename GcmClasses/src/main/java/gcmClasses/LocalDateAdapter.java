@@ -4,6 +4,8 @@ import java.time.LocalDate;
 
 import jakarta.xml.bind.annotation.adapters.XmlAdapter;
 
+
+
 /**
  * Adapter (for JAXB) to convert between the LocalDate and the ISO 8601 String
  * representation of the date such as '24.12.2022'.

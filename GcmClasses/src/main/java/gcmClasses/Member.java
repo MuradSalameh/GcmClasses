@@ -12,6 +12,10 @@ import jakarta.xml.bind.annotation.XmlRootElement;
 import jakarta.xml.bind.annotation.XmlTransient;
 import jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
+
+
+
+
 @XmlRootElement(name = "Member")
 public class Member implements Serializable {
 

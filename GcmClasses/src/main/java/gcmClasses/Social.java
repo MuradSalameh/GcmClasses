@@ -5,6 +5,8 @@ import java.io.Serializable;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlRootElement;
 
+
+
 @XmlRootElement
 public class Social implements Serializable {
 
